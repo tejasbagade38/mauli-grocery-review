@@ -1,0 +1,408 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mauli General Store</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff8e7, #eaf7ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+}
+
+.card {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    border-radius: 28px;
+    padding: 28px 22px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+}
+
+/* Shop icon */
+.shop-icon {
+    width: 78px;
+    height: 78px;
+    background: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 40px;
+}
+
+/* Shop name */
+h1 {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 27px;
+    color: #222;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-top: 7px;
+    font-size: 15px;
+}
+
+/* Stars */
+.stars {
+    text-align: center;
+    color: #fbbc04;
+    font-size: 31px;
+    margin: 13px 0 5px;
+}
+
+/* Section title */
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 22px 3px 10px;
+}
+
+/* Review options */
+.review {
+    display: block;
+    border: 2px solid #eeeeee;
+    border-radius: 15px;
+    padding: 13px;
+    margin-bottom: 9px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.review:hover {
+    border-color: #34a853;
+    background: #f5fff7;
+}
+
+.review.selected {
+    border-color: #34a853;
+    background: #eaf8ed;
+}
+
+.review input {
+    display: none;
+}
+
+.review-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* Custom review */
+textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    border: 2px solid #eeeeee;
+    border-radius: 15px;
+    padding: 14px;
+    font-size: 14px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #34a853;
+}
+
+/* Google button */
+.google-btn {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    padding: 16px;
+    margin-top: 20px;
+    background: #1a73e8;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.google-btn:hover {
+    background: #1558b0;
+    transform: translateY(-2px);
+}
+
+/* Success message */
+#message {
+    display: none;
+    margin-top: 12px;
+    padding: 11px;
+    border-radius: 10px;
+    background: #e8f5e9;
+    color: #267a35;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #666;
+}
+
+.contact a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.note {
+    text-align: center;
+    color: #999;
+    font-size: 11px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- SHOP ICON -->
+    <div class="shop-icon">
+        🛒
+    </div>
+
+    <!-- SHOP NAME -->
+    <h1>Mauli General Store</h1>
+
+    <p class="subtitle">
+        Thank you for shopping with us! ❤️
+    </p>
+
+    <!-- STARS -->
+    <div class="stars">
+        ★★★★★
+    </div>
+
+
+    <!-- REVIEW OPTIONS -->
+
+    <div class="section-title">
+        ⭐ Choose a review
+    </div>
+
+
+    <label class="review">
+
+        <input type="radio" name="review">
+
+        <div class="review-text">
+            Great shopping experience! The shop was clean,
+            products were fresh and the staff was very helpful.
+        </div>
+
+    </label>
+
+
+    <label class="review">
+
+        <input type="radio" name="review">
+
+        <div class="review-text">
+            Good variety of products and reasonable prices.
+            The service was quick and friendly.
+        </div>
+
+    </label>
+
+
+    <label class="review">
+
+        <input type="radio" name="review">
+
+        <div class="review-text">
+            Very convenient grocery store with good quality
+            products and excellent service.
+        </div>
+
+    </label>
+
+
+    <label class="review">
+
+        <input type="radio" name="review">
+
+        <div class="review-text">
+            Had a pleasant shopping experience.
+            Friendly staff, good product availability
+            and fast service.
+        </div>
+
+    </label>
+
+
+    <!-- CUSTOM REVIEW -->
+
+    <div class="section-title">
+        ✍️ Or write your own review
+    </div>
+
+    <textarea
+        id="customReview"
+        placeholder="Tell us about your experience..."
+    ></textarea>
+
+
+    <!-- GOOGLE BUTTON -->
+
+    <button
+        class="google-btn"
+        onclick="openGoogleReview()">
+
+        ⭐ Continue to Google Review
+
+    </button>
+
+
+    <!-- MESSAGE -->
+
+    <div id="message">
+        ✓ Your review has been copied.
+        Paste it on Google and submit your review.
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="contact">
+        Need help?
+        <a href="tel:8446405679">
+            8446405679
+        </a>
+    </div>
+
+
+    <div class="note">
+        Please review us based on your actual experience.
+        You can edit your review before posting.
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   SELECT REVIEW
+========================= */
+
+const reviews = document.querySelectorAll(".review");
+
+reviews.forEach(review => {
+
+    review.addEventListener("click", function() {
+
+        // Remove previous selection
+        reviews.forEach(r => {
+            r.classList.remove("selected");
+        });
+
+        // Select current review
+        this.classList.add("selected");
+
+        // Get review text
+        const text =
+            this.querySelector(".review-text")
+            .innerText
+            .trim();
+
+        // Put it in textarea
+        document.getElementById("customReview").value = text;
+
+    });
+
+});
+
+
+/* =========================
+   GOOGLE REVIEW
+========================= */
+
+function openGoogleReview() {
+
+    const review =
+        document
+        .getElementById("customReview")
+        .value
+        .trim();
+
+
+    // Check review
+    if (review === "") {
+
+        alert(
+            "Please select a review or write your own review first."
+        );
+
+        return;
+    }
+
+
+    // Google Maps link of Mauli General Store
+    const googleLink =
+        "https://maps.app.goo.gl/ovx2zAFgmc8Hinb49";
+
+
+    // Copy review
+    if (navigator.clipboard) {
+
+        navigator.clipboard.writeText(review)
+        .then(function() {
+
+            document.getElementById("message")
+                .style.display = "block";
+
+            setTimeout(function() {
+
+                window.location.href = googleLink;
+
+            }, 1200);
+
+        })
+        .catch(function() {
+
+            window.location.href = googleLink;
+
+        });
+
+    } else {
+
+        window.location.href = googleLink;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
